@@ -1,44 +1,31 @@
 {
-  "name": "react-typescript",
+  "name": "vacation-management-system",
   "version": "1.0.0",
-  "description": "React and TypeScript example starter project",
-  "keywords": [
-    "typescript",
-    "react",
-    "starter"
-  ],
+  "description": "Vacation Management System",
   "main": "src/index.tsx",
   "dependencies": {
-    "loader-utils": "3.2.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-scripts": "5.0.1",
-    "lucide-react": "0.469.0",
-    "date-fns": "4.1.0",
-    "papaparse": "5.4.1",
-    "@types/papaparse": "5.3.15",
-    "ts-lib-utils": "2.18.0",
-    "@radix-ui/react-tabs": "1.1.2",
-    "clsx": "2.1.1",
-    "tailwind-merge": "2.6.0",
-    "vite": "6.0.7",
-    "eslint-define-config": "2.1.0"
+    "@radix-ui/react-tabs": "^1.0.4",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "lucide-react": "^0.284.0",
+    "papaparse": "^5.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.38",
-    "@types/react-dom": "18.2.15",
-    "typescript": "4.4.4"
+    "@types/papaparse": "^5.3.8",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
 }

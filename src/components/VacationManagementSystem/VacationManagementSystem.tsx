@@ -1,0 +1,63 @@
+import React, { useState } from "react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/Tabs";
+import { Calendar, Upload, Download } from "lucide-react";
+import CalendarView from "./CalendarView";
+import AddVacations from "./AddVacations";
+import Reports from "./Reports";
+import { useVacations } from "../../hooks/useVacations";
+
+const VacationManagementSystem = () => {
+  const [activeTab, setActiveTab] = useState("calendar");
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const { vacations, setVacations, employees, setEmployees } = useVacations();
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-6">Vacation Management System</h1>
+
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <TabsList className="mb-4">
+          <TabsTrigger value="calendar">
+            <Calendar className="w-4 h-4 mr-2" />
+            Calendar View
+          </TabsTrigger>
+          <TabsTrigger value="add">
+            <Upload className="w-4 h-4 mr-2" />
+            Add Vacations
+          </TabsTrigger>
+          <TabsTrigger value="reports">
+            <Download className="w-4 h-4 mr-2" />
+            Reports
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="calendar">
+          <CalendarView
+            vacations={vacations}
+            currentDate={currentDate}
+            setCurrentDate={setCurrentDate}
+          />
+        </TabsContent>
+
+        <TabsContent value="add">
+          <AddVacations
+            onVacationsAdd={(newVacations) => {
+              setVacations([...vacations, ...newVacations]);
+            }}
+            existingVacations={vacations}
+          />
+        </TabsContent>
+
+        <TabsContent value="reports">
+          <Reports
+            vacations={vacations}
+            employees={employees}
+            currentDate={currentDate}
+          />
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default VacationManagementSystem;
